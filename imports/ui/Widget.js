@@ -11,7 +11,7 @@ const Widget = ({ items, loading }) => (
       {loading ? (
         <p>Loading...</p>
       ) : (
-        items.map((item, i) => <li key={i + item.text}>{item.text}</li>)
+        items.map((item) => <li key={item._id}>{item._id} {item.text}</li>)
       )}
     </ul>
   </div>

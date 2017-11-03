@@ -12,7 +12,7 @@ const Page = ({ items, loading }) => (
       {loading ? (
         <p>Loading...</p>
       ) : (
-        items.map((item, i) => <li key={i + item.text}>{item.text}</li>)
+        items.map((item) => <li key={item._id}>{item._id} {item.text}</li>)
       )}
     </ul>
     <Widget />
@@ -20,6 +20,10 @@ const Page = ({ items, loading }) => (
     <p>Call the 'items.add' Meteor method to add to this collection e.g.</p>
     <pre>
       Meteor.call('items.add', {'{'} text: 'test' {'}'})
+    </pre>
+    <p>Call the 'items.update' Meteor method to update the collection e.g.</p>
+    <pre>
+      Meteor.call('items.update', {'{'} _id: 'xxx', text: 'test' {'}'})
     </pre>
   </div>
 )
