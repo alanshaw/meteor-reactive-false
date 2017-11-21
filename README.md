@@ -7,3 +7,7 @@ Note the thing that's specifying reactivity is the following code in `imports/ui
 ```js
 Items.find({}, { reactive: false }).fetch()
 ```
+
+## Conclusion
+
+`{ reactive: false }` is a signal to the tracker to not track the query. i.e. it won't re-run the computation if the results of the `find()` change. However it **will re-run the computation if other things it is tracking change**. So to ensure non-reactivity, you really want a tracker that tracks **only** the ready state of the subscription and the query for the data.
